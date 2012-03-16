@@ -4,8 +4,7 @@ coffeekup = require 'coffeekup'
 crypto = require 'crypto'
 fs = require 'fs'
 
-exec = require('child_process').exec
-
+port = process.env.PORT || 3000
 
 app = express.createServer()
 
@@ -29,5 +28,5 @@ app.get '/', (req, res) ->
 	res.render 'index',
 		qs: req.query
 
-app.listen 3000
-console.log 'listening on 3000'
+app.listen port
+console.log 'listening on ' + port
