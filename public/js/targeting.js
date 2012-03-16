@@ -1,5 +1,5 @@
 (function() {
-  var PutABirdOnIt, Stock, TvShow, Weather, getValues;
+  var Gas, PutABirdOnIt, Stock, TvShow, Weather;
   $(function() {
     var putABirdOnIt, server;
     server = ANX.XFServer;
@@ -13,25 +13,8 @@
     });
     return ANX.setAsReady();
   });
-  getValues = function() {
-    var segment;
-    return segment = {
-      boolean_operator: 'and',
-      segment_group_targets: [
-        {
-          boolean_operator: 'or',
-          segments: [
-            {
-              id: 57415,
-              action: 'include'
-            }
-          ]
-        }
-      ]
-    };
-  };
   PutABirdOnIt = function() {
-    var init, _$gas, _$stocks, _$tv, _$weather, _getSegs, _getStocks, _getTv, _getWeather, _initStocks, _initTv, _initWeather, _shows, _stocks, _weathers;
+    var init, _$gas, _$stocks, _$tv, _$weather, _gasses, _getSegs, _getStocks, _getTv, _getWeather, _initGas, _initStocks, _initTv, _initWeather, _shows, _stocks, _weathers;
     _$weather = $('#weather');
     _$tv = $('#tv');
     _$gas = $('#gas');
@@ -39,22 +22,27 @@
     _weathers = [];
     _shows = [];
     _stocks = [];
+    _gasses = [];
     init = function() {
       this.segments = {
         weather: {
           coverage: [
             {
               type: "Sunny",
-              segment: 59283
+              segment: 59283,
+              image_url: '/img/Sunny.png'
             }, {
               type: "Rainy",
-              segment: 59284
+              segment: 59284,
+              image_url: '/img/Raining.png'
             }, {
               type: "Cloudy",
-              segment: 59285
+              segment: 59285,
+              image_url: '/img/Cloudy.png'
             }, {
               type: "Snowy",
-              segment: 59286
+              segment: 59286,
+              image_url: '/img/Snowing.png'
             }
           ],
           temperature: [
@@ -86,125 +74,24 @@
               type: "> 100",
               segment: 59295
             }
-          ],
-          tv: [
-            {
-              name: '60 Minutes',
-              image_url: 'http://images.zap2it.com/images/tv-EP00000035/60-minutes-5.jpg',
-              options: [
-                {
-                  segment: '59545',
-                  name: 'The show will start within 60 minutes.'
-                }, {
-                  segment: '59546',
-                  name: 'The show will start within 30 minutes.'
-                }, {
-                  segment: '59547',
-                  name: 'The show is currently running.'
-                }, {
-                  segment: '59548',
-                  name: 'The show ended within 30 minutes.'
-                }, {
-                  segment: '59549',
-                  name: 'The show ended within 60 minutes.'
-                }
-              ]
-            }, {
-              name: 'The Andy Griffith Show',
-              image_url: 'http://images.zap2it.com/images/tv-EP00000324/the-andy-griffith-show-1.jpg',
-              options: [
-                {
-                  segment: '59550',
-                  name: 'The show will start within 60 minutes.'
-                }, {
-                  segment: '59551',
-                  name: 'The show will start within 30 minutes.'
-                }, {
-                  segment: '59552',
-                  name: 'The show is currently running.'
-                }, {
-                  segment: '59553',
-                  name: 'The show ended within 30 minutes.'
-                }, {
-                  segment: '59554',
-                  name: 'The show ended within 60 minutes.'
-                }
-              ]
-            }, {
-              name: 'Austin City Limits',
-              image_url: 'http://images.zap2it.com/images/tv-EP00000439/austin-city-limits-5.jpg',
-              options: [
-                {
-                  segment: '59555',
-                  name: 'The show will start within 60 minutes.'
-                }, {
-                  segment: '59556',
-                  name: 'The show will start within 30 minutes.'
-                }, {
-                  segment: '59557',
-                  name: 'The show is currently running.'
-                }, {
-                  segment: '59558',
-                  name: 'The show ended within 30 minutes.'
-                }, {
-                  segment: '59559',
-                  name: 'The show ended within 60 minutes.'
-                }
-              ]
-            }, {
-              name: 'Babar',
-              image_url: 'http://images.zap2it.com/images/tv-EP00000455/babar-2.jpg',
-              options: [
-                {
-                  segment: '59560',
-                  name: 'The show will start within 60 minutes.'
-                }, {
-                  segment: '59561',
-                  name: 'The show will start within 30 minutes.'
-                }, {
-                  segment: '59562',
-                  name: 'The show is currently running.'
-                }, {
-                  segment: '59563',
-                  name: 'The show ended within 30 minutes.'
-                }, {
-                  segment: '59564',
-                  name: 'The show ended within 60 minutes.'
-                }
-              ]
-            }, {
-              name: 'Barney & Friends',
-              image_url: 'http://images.zap2it.com/images/tv-EP00000479/barney-and-friends-7.jpg',
-              options: [
-                {
-                  segment: '59565',
-                  name: 'The show will start within 60 minutes.'
-                }, {
-                  segment: '59566',
-                  name: 'The show will start within 30 minutes.'
-                }, {
-                  segment: '59567',
-                  name: 'The show is currently running.'
-                }, {
-                  segment: '59568',
-                  name: 'The show ended within 30 minutes.'
-                }, {
-                  segment: '59569',
-                  name: 'The show ended within 60 minutes.'
-                }
-              ]
-            }
           ]
         },
+        gas: [
+          {
+            segment: 1234,
+            name: 'Up'
+          }
+        ],
         stocks: [
           {
             name: 'MSFT',
+            image_url: '/img/Windows.png',
             options: [
               {
-                segment: 59297,
+                segment: 59298,
                 name: 'Up'
               }, {
-                segment: 59298,
+                segment: 59297,
                 name: 'Down'
               }, {
                 segment: 59299,
@@ -234,6 +121,7 @@
             ]
           }, {
             name: 'YHOO',
+            image_url: '/img/Yahoo!.png',
             options: [
               {
                 segment: 59322,
@@ -269,6 +157,7 @@
             ]
           }, {
             name: 'GOOG',
+            image_url: '/img/Google.png',
             options: [
               {
                 segment: 59332,
@@ -304,6 +193,7 @@
             ]
           }, {
             name: 'NASDAQ',
+            image_url: '/img/Nasdaq.png',
             options: [
               {
                 segment: 59342,
@@ -339,6 +229,7 @@
             ]
           }, {
             name: 'GOLD',
+            image_url: '/img/Gold.png',
             options: [
               {
                 segment: 59352,
@@ -373,11 +264,225 @@
               }
             ]
           }
+        ],
+        tv: [
+          {
+            name: '60 Minutes',
+            image_url: 'http://images.zap2it.com/images/tv-EP00000035/60-minutes-5.jpg',
+            options: [
+              {
+                segment: '59809',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59810',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59811',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59812',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59813',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'The Andy Griffith Show',
+            image_url: 'http://images.zap2it.com/images/tv-EP00000324/the-andy-griffith-show-1.jpg',
+            options: [
+              {
+                segment: '59814',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59815',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59816',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59817',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59818',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'Austin City Limits',
+            image_url: 'http://images.zap2it.com/images/tv-EP00000439/austin-city-limits-5.jpg',
+            options: [
+              {
+                segment: '59819',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59820',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59821',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59822',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59823',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'Babar',
+            image_url: 'http://images.zap2it.com/images/tv-EP00000455/babar-2.jpg',
+            options: [
+              {
+                segment: '59824',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59825',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59826',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59827',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59828',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'Barney & Friends',
+            image_url: 'http://images.zap2it.com/images/tv-EP00000479/barney-and-friends-7.jpg',
+            options: [
+              {
+                segment: '59829',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59830',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59831',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59832',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59833',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'The Beverly Hillbillies',
+            image_url: 'http://images.zap2it.com/images/tv-EP00000552/the-beverly-hillbillies-4.jpg',
+            options: [
+              {
+                segment: '59834',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59835',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59836',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59837',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59838',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'Cheers',
+            image_url: 'http://images.zap2it.com/images/tv-EP00000882/cheers-7.jpg',
+            options: [
+              {
+                segment: '59839',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59840',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59841',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59842',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59843',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'Days of our Lives',
+            image_url: 'http://images.zap2it.com/images/tv-EP00001189/days-of-our-lives-5.jpg',
+            options: [
+              {
+                segment: '59844',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59845',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59846',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59847',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59848',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'Entertainment Tonight',
+            image_url: 'http://images.zap2it.com/images/tv-EP00001457/entertainment-tonight-3.jpg',
+            options: [
+              {
+                segment: '59849',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59850',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59851',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59852',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59853',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }, {
+            name: 'Face the Nation',
+            image_url: 'http://images.zap2it.com/images/tv-EP00001522/face-the-nation-6.jpg',
+            options: [
+              {
+                segment: '59854',
+                name: 'The show will start within 60 minutes.'
+              }, {
+                segment: '59855',
+                name: 'The show will start within 30 minutes.'
+              }, {
+                segment: '59856',
+                name: 'The show is currently running.'
+              }, {
+                segment: '59857',
+                name: 'The show ended within 30 minutes.'
+              }, {
+                segment: '59858',
+                name: 'The show ended within 60 minutes.'
+              }
+            ]
+          }
         ]
       };
       _initWeather();
       _initTv();
-      return _initStocks();
+      _initStocks();
+      return _initGas();
     };
     _getSegs = function(objs) {
       var segments;
@@ -385,11 +490,22 @@
       _.each(objs, function(obj) {
         var segment_id;
         segment_id = obj.getId();
-        if (segment_id) {
-          return segments.push({
-            id: segment_id,
-            action: 'include'
+        if (typeof segment_id === 'string') {
+          return _.each(segment_id.split(','), function(id) {
+            if (id) {
+              return segments.push({
+                id: id,
+                action: 'include'
+              });
+            }
           });
+        } else {
+          if (segment_id) {
+            return segments.push({
+              id: segment_id,
+              action: 'include'
+            });
+          }
         }
       });
       if (segments.length === 0) {
@@ -423,6 +539,15 @@
       });
       return _$weather.append('<div class="clear"></div>');
     };
+    _initGas = function() {
+      _.each(this.segments.gas, function(g) {
+        var gas;
+        gas = new Gas(g);
+        _gasses.push(gas);
+        return _$gas.append(gas.getDomElement());
+      });
+      return _$gas.append('<div class="clear"></div>');
+    };
     _initTv = function() {
       _.each(this.segments.tv, function(tv) {
         var show;
@@ -442,7 +567,7 @@
       return _$stocks.append('<div class="clear"></div>');
     };
     this.getValues = function() {
-      var seg_group_targets, segment, stocks_segs, tv_segs, weather_segs;
+      var gasses_segs, seg_group_targets, segment, stocks_segs, tv_segs, weather_segs;
       seg_group_targets = [];
       weather_segs = _getWeather();
       if (weather_segs) {
@@ -455,6 +580,10 @@
       stocks_segs = _getStocks();
       if (stocks_segs) {
         seg_group_targets.push(stocks_segs);
+      }
+      gasses_segs = _getSegs(_gasses);
+      if (gasses_segs) {
+        seg_group_targets.push(gasses_segs);
       }
       return segment = {
         boolean_operator: 'and',
@@ -476,6 +605,38 @@
         img = '<img src="' + data.image_url + '">';
       }
       _$e = $('<div class="item"><h3>' + data.type + '</h3>' + img + '</div>');
+      _$e.bind('click', function(e) {
+        e.preventDefault();
+        _selected = _selected ? false : true;
+        return _$e.toggleClass('selected', _selected);
+      });
+      return _data = data;
+    };
+    this.getDomElement = function() {
+      return _$e;
+    };
+    this.getId = function() {
+      if (_selected) {
+        return _data.segment;
+      } else {
+        return false;
+      }
+    };
+    _init(data);
+    return this;
+  };
+  Gas = function(data) {
+    var _$e, _data, _init, _selected;
+    _selected = false;
+    _$e = null;
+    _data = null;
+    _init = function(data) {
+      var img;
+      img = '';
+      if (data.image_url) {
+        img = '<img src="' + data.image_url + '">';
+      }
+      _$e = $('<div class="item"><h3>' + data.name + '</h3>' + img + '</div>');
       _$e.bind('click', function(e) {
         e.preventDefault();
         _selected = _selected ? false : true;

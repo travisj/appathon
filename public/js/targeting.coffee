@@ -10,15 +10,6 @@ $ ->
 
 	ANX.setAsReady()
 
-getValues = ->
-	segment =
-		boolean_operator: 'and'
-		segment_group_targets: [ {
-			boolean_operator: 'or'
-			segments: [ { id: 57415, action: 'include' } ]
-		} ]
-
-
 PutABirdOnIt = ->
 	_$weather = $ '#weather'
 	_$tv = $ '#tv'
@@ -28,15 +19,16 @@ PutABirdOnIt = ->
 	_weathers = []
 	_shows = []
 	_stocks = []
+	_gasses = []
 
 	init = ->
 		this.segments =
 		 weather:
 			 coverage: [
-				 {type: "Sunny", segment: 59283}
-				 {type: "Rainy", segment: 59284}
-				 {type: "Cloudy", segment: 59285}
-				 {type: "Snowy", segment: 59286} ]
+				 {type: "Sunny", segment: 59283, image_url: '/img/Sunny.png'}
+				 {type: "Rainy", segment: 59284, image_url: '/img/Raining.png'}
+				 {type: "Cloudy", segment: 59285, image_url: '/img/Cloudy.png'}
+				 {type: "Snowy", segment: 59286, image_url: '/img/Snowing.png'} ]
 			 temperature: [
 				 {type: "< 30", segment: 59287}
 				 {type: "30s", segment: 59288}
@@ -47,47 +39,13 @@ PutABirdOnIt = ->
 				 {type: "80s", segment: 59293}
 				 {type: "90s", segment: 59294}
 				 {type: "> 100", segment: 59295} ]
-			 tv: [
-					{name:'60 Minutes', image_url:'http://images.zap2it.com/images/tv-EP00000035/60-minutes-5.jpg', options:[
-						{ segment: '59545', name: 'The show will start within 60 minutes.'}
-						{ segment: '59546', name: 'The show will start within 30 minutes.'}
-						{ segment: '59547', name: 'The show is currently running.'}
-						{ segment: '59548', name: 'The show ended within 30 minutes.'}
-						{ segment: '59549', name: 'The show ended within 60 minutes.'}
-					]}
-					{name:'The Andy Griffith Show', image_url:'http://images.zap2it.com/images/tv-EP00000324/the-andy-griffith-show-1.jpg', options:[
-						{ segment: '59550', name: 'The show will start within 60 minutes.'}
-						{ segment: '59551', name: 'The show will start within 30 minutes.'}
-						{ segment: '59552', name: 'The show is currently running.'}
-						{ segment: '59553', name: 'The show ended within 30 minutes.'}
-						{ segment: '59554', name: 'The show ended within 60 minutes.'}
-					]}
-					{name:'Austin City Limits', image_url:'http://images.zap2it.com/images/tv-EP00000439/austin-city-limits-5.jpg', options:[
-						{ segment: '59555', name: 'The show will start within 60 minutes.'}
-						{ segment: '59556', name: 'The show will start within 30 minutes.'}
-						{ segment: '59557', name: 'The show is currently running.'}
-						{ segment: '59558', name: 'The show ended within 30 minutes.'}
-						{ segment: '59559', name: 'The show ended within 60 minutes.'}
-					]}
-					{name:'Babar', image_url:'http://images.zap2it.com/images/tv-EP00000455/babar-2.jpg', options:[
-						{ segment: '59560', name: 'The show will start within 60 minutes.'}
-						{ segment: '59561', name: 'The show will start within 30 minutes.'}
-						{ segment: '59562', name: 'The show is currently running.'}
-						{ segment: '59563', name: 'The show ended within 30 minutes.'}
-						{ segment: '59564', name: 'The show ended within 60 minutes.'}
-					]}
-					{name:'Barney & Friends', image_url:'http://images.zap2it.com/images/tv-EP00000479/barney-and-friends-7.jpg', options:[
-						{ segment: '59565', name: 'The show will start within 60 minutes.'}
-						{ segment: '59566', name: 'The show will start within 30 minutes.'}
-						{ segment: '59567', name: 'The show is currently running.'}
-						{ segment: '59568', name: 'The show ended within 30 minutes.'}
-						{ segment: '59569', name: 'The show ended within 60 minutes.'}
-					]}
-				]
+			gas: [
+				{ segment: 1234, name: 'Up'}
+			]
 			stocks:[
-				{ name: 'MSFT', options: [
-					{ segment: 59297, name: 'Up' }
-					{ segment: 59298, name: 'Down' }
+				{ name: 'MSFT', image_url: '/img/Windows.png', options: [
+					{ segment: 59298, name: 'Up' }
+					{ segment: 59297, name: 'Down' }
 					{ segment: 59299, name: 'No Change' }
 					{ segment: 59307, name: 'Less than -2%' }
 					{ segment: 59308, name: 'Between -2% and -1%' }
@@ -97,7 +55,7 @@ PutABirdOnIt = ->
 					{ segment: 59312, name: 'Between 1% and 2%' }
 					{ segment: 59313, name: 'Greater than 2%' }
 				]}
-				{ name: 'YHOO', options: [
+				{ name: 'YHOO', image_url: '/img/Yahoo!.png', options: [
 					{ segment: 59322, name: 'Up' }
 					{ segment: 59323, name: 'Down' }
 					{ segment: 59324, name: 'No Change' }
@@ -109,7 +67,7 @@ PutABirdOnIt = ->
 					{ segment: 59330, name: 'Between 1% and 2%' }
 					{ segment: 59331, name: 'Greater than 2%' }
 				]}
-				{ name: 'GOOG', options: [
+				{ name: 'GOOG', image_url: '/img/Google.png', options: [
 					{ segment: 59332, name: 'Up' }
 					{ segment: 59333, name: 'Down' }
 					{ segment: 59334, name: 'No Change' }
@@ -121,7 +79,7 @@ PutABirdOnIt = ->
 					{ segment: 59340, name: 'Between 1% and 2%' }
 					{ segment: 59341, name: 'Greater than 2%' }
 				]}
-				{ name: 'NASDAQ', options: [
+				{ name: 'NASDAQ', image_url: '/img/Nasdaq.png', options: [
 					{ segment: 59342, name: 'Up' }
 					{ segment: 59343, name: 'Down' }
 					{ segment: 59344, name: 'No Change' }
@@ -133,7 +91,7 @@ PutABirdOnIt = ->
 					{ segment: 59350, name: 'Between 1% and 2%' }
 					{ segment: 59351, name: 'Greater than 2%' }
 				]}
-				{ name: 'GOLD', options: [
+				{ name: 'GOLD', image_url: '/img/Gold.png', options: [
 					{ segment: 59352, name: 'Up' }
 					{ segment: 59353, name: 'Down' }
 					{ segment: 59354, name: 'No Change' }
@@ -146,16 +104,93 @@ PutABirdOnIt = ->
 					{ segment: 59361, name: 'Greater than 2%' }
 				]}
 			]
+			tv: [
+				{name:'60 Minutes', image_url:'http://images.zap2it.com/images/tv-EP00000035/60-minutes-5.jpg', options:[
+					{ segment: '59809', name: 'The show will start within 60 minutes.'}
+					{ segment: '59810', name: 'The show will start within 30 minutes.'}
+					{ segment: '59811', name: 'The show is currently running.'}
+					{ segment: '59812', name: 'The show ended within 30 minutes.'}
+					{ segment: '59813', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'The Andy Griffith Show', image_url:'http://images.zap2it.com/images/tv-EP00000324/the-andy-griffith-show-1.jpg', options:[
+					{ segment: '59814', name: 'The show will start within 60 minutes.'}
+					{ segment: '59815', name: 'The show will start within 30 minutes.'}
+					{ segment: '59816', name: 'The show is currently running.'}
+					{ segment: '59817', name: 'The show ended within 30 minutes.'}
+					{ segment: '59818', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'Austin City Limits', image_url:'http://images.zap2it.com/images/tv-EP00000439/austin-city-limits-5.jpg', options:[
+					{ segment: '59819', name: 'The show will start within 60 minutes.'}
+					{ segment: '59820', name: 'The show will start within 30 minutes.'}
+					{ segment: '59821', name: 'The show is currently running.'}
+					{ segment: '59822', name: 'The show ended within 30 minutes.'}
+					{ segment: '59823', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'Babar', image_url:'http://images.zap2it.com/images/tv-EP00000455/babar-2.jpg', options:[
+					{ segment: '59824', name: 'The show will start within 60 minutes.'}
+					{ segment: '59825', name: 'The show will start within 30 minutes.'}
+					{ segment: '59826', name: 'The show is currently running.'}
+					{ segment: '59827', name: 'The show ended within 30 minutes.'}
+					{ segment: '59828', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'Barney & Friends', image_url:'http://images.zap2it.com/images/tv-EP00000479/barney-and-friends-7.jpg', options:[
+					{ segment: '59829', name: 'The show will start within 60 minutes.'}
+					{ segment: '59830', name: 'The show will start within 30 minutes.'}
+					{ segment: '59831', name: 'The show is currently running.'}
+					{ segment: '59832', name: 'The show ended within 30 minutes.'}
+					{ segment: '59833', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'The Beverly Hillbillies', image_url:'http://images.zap2it.com/images/tv-EP00000552/the-beverly-hillbillies-4.jpg', options:[
+					{ segment: '59834', name: 'The show will start within 60 minutes.'}
+					{ segment: '59835', name: 'The show will start within 30 minutes.'}
+					{ segment: '59836', name: 'The show is currently running.'}
+					{ segment: '59837', name: 'The show ended within 30 minutes.'}
+					{ segment: '59838', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'Cheers', image_url:'http://images.zap2it.com/images/tv-EP00000882/cheers-7.jpg', options:[
+					{ segment: '59839', name: 'The show will start within 60 minutes.'}
+					{ segment: '59840', name: 'The show will start within 30 minutes.'}
+					{ segment: '59841', name: 'The show is currently running.'}
+					{ segment: '59842', name: 'The show ended within 30 minutes.'}
+					{ segment: '59843', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'Days of our Lives', image_url:'http://images.zap2it.com/images/tv-EP00001189/days-of-our-lives-5.jpg', options:[
+					{ segment: '59844', name: 'The show will start within 60 minutes.'}
+					{ segment: '59845', name: 'The show will start within 30 minutes.'}
+					{ segment: '59846', name: 'The show is currently running.'}
+					{ segment: '59847', name: 'The show ended within 30 minutes.'}
+					{ segment: '59848', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'Entertainment Tonight', image_url:'http://images.zap2it.com/images/tv-EP00001457/entertainment-tonight-3.jpg', options:[
+					{ segment: '59849', name: 'The show will start within 60 minutes.'}
+					{ segment: '59850', name: 'The show will start within 30 minutes.'}
+					{ segment: '59851', name: 'The show is currently running.'}
+					{ segment: '59852', name: 'The show ended within 30 minutes.'}
+					{ segment: '59853', name: 'The show ended within 60 minutes.'}
+				]}
+				{name:'Face the Nation', image_url:'http://images.zap2it.com/images/tv-EP00001522/face-the-nation-6.jpg', options:[
+					{ segment: '59854', name: 'The show will start within 60 minutes.'}
+					{ segment: '59855', name: 'The show will start within 30 minutes.'}
+					{ segment: '59856', name: 'The show is currently running.'}
+					{ segment: '59857', name: 'The show ended within 30 minutes.'}
+					{ segment: '59858', name: 'The show ended within 60 minutes.'}
+				]}
+			]
 
 		_initWeather()
 		_initTv()
 		_initStocks()
+		_initGas()
 
 	_getSegs = (objs) ->
 		segments = []
 		_.each objs, (obj) ->
 			segment_id = obj.getId()
-			segments.push { id: segment_id, action: 'include' } if segment_id
+			if typeof segment_id == 'string'
+				_.each segment_id.split(','), (id) ->
+					segments.push { id: id, action: 'include' } if id
+			else
+				segments.push { id: segment_id, action: 'include' } if segment_id
 
 		return false if segments.length == 0
 		return {
@@ -184,6 +219,13 @@ PutABirdOnIt = ->
 			_$weather.append weather.getDomElement()
 		_$weather.append '<div class="clear"></div>'
 
+	_initGas = ->
+		_.each this.segments.gas, (g) ->
+			gas = new Gas g
+			_gasses.push gas
+			_$gas.append gas.getDomElement()
+		_$gas.append '<div class="clear"></div>'
+
 	_initTv = ->
 		_.each this.segments.tv, (tv) ->
 			show = new TvShow tv
@@ -211,6 +253,9 @@ PutABirdOnIt = ->
 		stocks_segs = _getStocks()
 		seg_group_targets.push stocks_segs if stocks_segs
 
+		gasses_segs = _getSegs(_gasses)
+		seg_group_targets.push gasses_segs if gasses_segs
+
 		segment =
 			boolean_operator: 'and'
 			segment_group_targets: seg_group_targets
@@ -226,6 +271,30 @@ Weather = (data) ->
 		img = ''
 		img = '<img src="' + data.image_url + '">' if data.image_url
 		_$e = $('<div class="item"><h3>' + data.type + '</h3>' + img + '</div>')
+
+		_$e.bind 'click', (e) ->
+			e.preventDefault()
+			_selected = if _selected then false else true
+			_$e.toggleClass 'selected', _selected
+
+		_data = data
+
+	this.getDomElement = ->
+		_$e
+	this.getId = ->
+		if _selected then _data.segment else false
+
+	_init data
+	this
+
+Gas = (data) ->
+	_selected = false
+	_$e = null
+	_data = null
+	_init = (data) ->
+		img = ''
+		img = '<img src="' + data.image_url + '">' if data.image_url
+		_$e = $('<div class="item"><h3>' + data.name + '</h3>' + img + '</div>')
 
 		_$e.bind 'click', (e) ->
 			e.preventDefault()
