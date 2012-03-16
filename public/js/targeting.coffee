@@ -30,15 +30,15 @@ PutABirdOnIt = ->
 				 {type: "Cloudy", segment: 59285, image_url: '/img/Cloudy.png'}
 				 {type: "Snowy", segment: 59286, image_url: '/img/Snowing.png'} ]
 			 temperature: [
-				 {type: "< 30", segment: 59287}
-				 {type: "30s", segment: 59288}
-				 {type: "40s", segment: 59289}
-				 {type: "50s", segment: 59290}
-				 {type: "60s", segment: 59291}
-				 {type: "70s", segment: 59292}
-				 {type: "80s", segment: 59293}
-				 {type: "90s", segment: 59294}
-				 {type: "> 100", segment: 59295} ]
+				 {type: "< 30", segment: 59287, image_url: '/img/30.png'}
+				 {type: "30s", segment: 59288, image_url: '/img/30.png'}
+				 {type: "40s", segment: 59289, image_url: '/img/40.png'}
+				 {type: "50s", segment: 59290, image_url: '/img/50.png'}
+				 {type: "60s", segment: 59291, image_url: '/img/60.png'}
+				 {type: "70s", segment: 59292, image_url: '/img/70.png'}
+				 {type: "80s", segment: 59293, image_url: '/img/80.png'}
+				 {type: "90s", segment: 59294, image_url: '/img/90.png'}
+				 {type: "> 100", segment: 59295, image_url: '/img/100.png'} ]
 			gas: [
 				{ segment: 1234, name: 'Up'}
 			]
