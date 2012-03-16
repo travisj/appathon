@@ -13,7 +13,7 @@ body {
 }
 
 .item.selected {
-	background-color: #FF231C;
+	background-color: #338585;
 }
 .item select {
 	display: none;

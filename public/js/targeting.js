@@ -86,74 +86,116 @@
               type: "> 100",
               segment: 59295
             }
+          ],
+          tv: [
+            {
+              name: '60 Minutes',
+              image_url: 'http://images.zap2it.com/images/tv-EP00000035/60-minutes-5.jpg',
+              options: [
+                {
+                  segment: '59545',
+                  name: 'The show will start within 60 minutes.'
+                }, {
+                  segment: '59546',
+                  name: 'The show will start within 30 minutes.'
+                }, {
+                  segment: '59547',
+                  name: 'The show is currently running.'
+                }, {
+                  segment: '59548',
+                  name: 'The show ended within 30 minutes.'
+                }, {
+                  segment: '59549',
+                  name: 'The show ended within 60 minutes.'
+                }
+              ]
+            }, {
+              name: 'The Andy Griffith Show',
+              image_url: 'http://images.zap2it.com/images/tv-EP00000324/the-andy-griffith-show-1.jpg',
+              options: [
+                {
+                  segment: '59550',
+                  name: 'The show will start within 60 minutes.'
+                }, {
+                  segment: '59551',
+                  name: 'The show will start within 30 minutes.'
+                }, {
+                  segment: '59552',
+                  name: 'The show is currently running.'
+                }, {
+                  segment: '59553',
+                  name: 'The show ended within 30 minutes.'
+                }, {
+                  segment: '59554',
+                  name: 'The show ended within 60 minutes.'
+                }
+              ]
+            }, {
+              name: 'Austin City Limits',
+              image_url: 'http://images.zap2it.com/images/tv-EP00000439/austin-city-limits-5.jpg',
+              options: [
+                {
+                  segment: '59555',
+                  name: 'The show will start within 60 minutes.'
+                }, {
+                  segment: '59556',
+                  name: 'The show will start within 30 minutes.'
+                }, {
+                  segment: '59557',
+                  name: 'The show is currently running.'
+                }, {
+                  segment: '59558',
+                  name: 'The show ended within 30 minutes.'
+                }, {
+                  segment: '59559',
+                  name: 'The show ended within 60 minutes.'
+                }
+              ]
+            }, {
+              name: 'Babar',
+              image_url: 'http://images.zap2it.com/images/tv-EP00000455/babar-2.jpg',
+              options: [
+                {
+                  segment: '59560',
+                  name: 'The show will start within 60 minutes.'
+                }, {
+                  segment: '59561',
+                  name: 'The show will start within 30 minutes.'
+                }, {
+                  segment: '59562',
+                  name: 'The show is currently running.'
+                }, {
+                  segment: '59563',
+                  name: 'The show ended within 30 minutes.'
+                }, {
+                  segment: '59564',
+                  name: 'The show ended within 60 minutes.'
+                }
+              ]
+            }, {
+              name: 'Barney & Friends',
+              image_url: 'http://images.zap2it.com/images/tv-EP00000479/barney-and-friends-7.jpg',
+              options: [
+                {
+                  segment: '59565',
+                  name: 'The show will start within 60 minutes.'
+                }, {
+                  segment: '59566',
+                  name: 'The show will start within 30 minutes.'
+                }, {
+                  segment: '59567',
+                  name: 'The show is currently running.'
+                }, {
+                  segment: '59568',
+                  name: 'The show ended within 30 minutes.'
+                }, {
+                  segment: '59569',
+                  name: 'The show ended within 60 minutes.'
+                }
+              ]
+            }
           ]
         },
-        tv: [
-          {
-            name: '60 Minutes',
-            image_url: 'http://images.zap2it.com/images/tv-EP00000035/60-minutes-5.jpg',
-            options: [
-              {
-                segment: 59423,
-                name: 'The show will start within 60 minutes.'
-              }, {
-                segment: 59424,
-                name: 'The show will start within 30 minutes.'
-              }, {
-                segment: 59425,
-                name: 'The show is currently running.'
-              }, {
-                segment: 59426,
-                name: 'The show ended within 30 minutes.'
-              }, {
-                segment: 59427,
-                name: 'The show ended within 60 minutes.'
-              }
-            ]
-          }, {
-            name: 'Austin City Limits',
-            image_url: 'http://images.zap2it.com/images/tv-EP00000439/austin-city-limits-5.jpg',
-            options: [
-              {
-                segment: 59428,
-                name: 'The show will start within 60 minutes.'
-              }, {
-                segment: 59429,
-                name: 'The show will start within 30 minutes.'
-              }, {
-                segment: 59430,
-                name: 'The show is currently running.'
-              }, {
-                segment: 59431,
-                name: 'The show ended within 30 minutes.'
-              }, {
-                segment: 59432,
-                name: 'The show ended within 60 minutes.'
-              }
-            ]
-          }, {
-            name: 'Babar',
-            image_url: 'http://images.zap2it.com/images/tv-EP00000455/babar-2.jpg',
-            options: [
-              {
-                segment: 59433,
-                name: 'The show will start within 60 minutes.'
-              }, {
-                segment: 59434,
-                name: 'The show will start within 30 minutes.'
-              }, {
-                segment: 59435,
-                name: 'The show is currently running.'
-              }, {
-                segment: 59436,
-                name: 'The show ended within 30 minutes.'
-              }, {
-                segment: 59437,
-                name: 'The show ended within 60 minutes.'
-              }
-            ]
-          }
-        ],
         stocks: [
           {
             name: 'MSFT',
