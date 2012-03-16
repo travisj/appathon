@@ -1,0 +1,36 @@
+body {
+	padding: 10px;
+}
+.item {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	background-color: #F0F0F0;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 220px;
+}
+
+.item.selected {
+	background-color: #FF231C;
+}
+.item select {
+	display: none;
+}
+.item.selected select {
+	display:inline;
+}
+
+.item h3 {
+	font-size: 14px;
+	color: #333;
+	padding: 0 0 10px 0;
+	display: block;
+	cursor: pointer;
+}
+
+.clear {
+	float:none;
+	clear:both;
+}
