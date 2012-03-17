@@ -9,7 +9,7 @@ body {
 	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;
-	width: 220px;
+	width: 180px;
 	height: 220px;
 }
 
@@ -33,6 +33,9 @@ body {
 	padding: 0 0 10px 0;
 	display: block;
 	cursor: pointer;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .clear {
