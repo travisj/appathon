@@ -30,7 +30,7 @@
             {
               type: "Sunny",
               segment: 59283,
-              image_url: '/img/Sunny.png'
+              image_url: '/img/Sunny.jpg'
             }, {
               type: "Rainy",
               segment: 59284,
@@ -42,46 +42,46 @@
             }, {
               type: "Snowy",
               segment: 59286,
-              image_url: '/img/Snowing.png'
+              image_url: '/img/Snowing.jpg'
             }
           ],
           temperature: [
             {
               type: "< 30",
               segment: 59287,
-              image_url: '/img/1.png'
+              image_url: '/img/less30s.jpg'
             }, {
               type: "30s",
               segment: 59288,
-              image_url: '/img/1.png'
+              image_url: '/img/30s.jpg'
             }, {
               type: "40s",
               segment: 59289,
-              image_url: '/img/2.png'
+              image_url: '/img/40s.jpg'
             }, {
               type: "50s",
               segment: 59290,
-              image_url: '/img/3.png'
+              image_url: '/img/50s.jpg'
             }, {
               type: "60s",
               segment: 59291,
-              image_url: '/img/4.png'
+              image_url: '/img/60s.jpg'
             }, {
               type: "70s",
               segment: 59292,
-              image_url: '/img/5.png'
+              image_url: '/img/70s.jpg'
             }, {
               type: "80s",
               segment: 59293,
-              image_url: '/img/6.png'
+              image_url: '/img/80s.jpg'
             }, {
               type: "90s",
               segment: 59294,
-              image_url: '/img/7.png'
+              image_url: '/img/90s.jpg'
             }, {
               type: "> 100",
               segment: 59295,
-              image_url: '/img/8.png'
+              image_url: '/img/100s.jpg'
             }
           ]
         },
